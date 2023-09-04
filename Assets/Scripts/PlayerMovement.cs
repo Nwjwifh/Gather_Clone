@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Vector2 _movementInput;
 
+    private bool isFlipped = false;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -23,22 +25,21 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue inputValue)
     {
         _movementInput = inputValue.Get<Vector2>().normalized;
+
+        if (_movementInput.x > 0 && isFlipped)
+        {
+            FlipCharacter();
+        }
+        else if (_movementInput.x < 0 && !isFlipped)
+        {
+            FlipCharacter();
+        }
     }
 
-    private void OnLook(InputValue inputValue)
+    private void FlipCharacter()
     {
-        Vector2 mousePosition = inputValue.Get<Vector2>();
-
-        // 마우스 위치가 캐릭터의 오른쪽에 있는지 왼쪽에 있는지 확인합니다.
-        if (mousePosition.x > transform.position.x)
-        {
-            // 마우스가 오른쪽에 있으면 캐릭터를 오른쪽으로 바라보게 합니다.
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else
-        {
-            // 마우스가 왼쪽에 있으면 캐릭터를 왼쪽으로 바라보게 합니다.
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        isFlipped = !isFlipped;
     }
+
 }
