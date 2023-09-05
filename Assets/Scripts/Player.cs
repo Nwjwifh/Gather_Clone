@@ -15,10 +15,13 @@ public class Player : MonoBehaviour
 
     public static string playerNameStr;
     public TMP_Text playerName;
+    public TMP_Text playerName2;
+
 
     private void Awake()
     {
         playerName.text = playerNameStr;
+        playerName2.text = playerNameStr;
 
         _rigidbody = GetComponent<Rigidbody2D>();
     }
