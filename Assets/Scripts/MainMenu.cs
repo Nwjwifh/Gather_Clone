@@ -35,4 +35,9 @@ public class MainMenu : MonoBehaviour
         Application.LoadLevel(1);
         PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
     }
+
+    public void ToMainMenu()
+    {
+        Application.LoadLevel(0);
+    }
 }

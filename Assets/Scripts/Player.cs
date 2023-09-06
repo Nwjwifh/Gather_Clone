@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
     public TMP_Text playerName;
     public TMP_Text playerName2;
 
+    private SpriteRenderer _spriteRenderer;
+    private Color originalColor;
+
+    public GameObject chatCanvas;
 
     private void Awake()
     {
@@ -24,24 +28,31 @@ public class Player : MonoBehaviour
         playerName2.text = playerNameStr;
 
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = _spriteRenderer.color;
     }
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = _movementInput * _speed;
+            _rigidbody.velocity = _movementInput * _speed;
+        
     }
 
     private void OnMove(InputValue inputValue)
     {
-        _movementInput = inputValue.Get<Vector2>().normalized;
+        if (chatCanvas != null && !chatCanvas.activeSelf) // 채팅창이 비활성화된 경우에만 움직임 입력 처리
+        {
+            _movementInput = inputValue.Get<Vector2>().normalized;
 
-        if (_movementInput.x > 0 && isFlipped)
-        {
-            FlipCharacter();
-        }
-        else if (_movementInput.x < 0 && !isFlipped)
-        {
-            FlipCharacter();
+            if (_movementInput.x > 0 && isFlipped)
+            {
+                FlipCharacter();
+            }
+            else if (_movementInput.x < 0 && !isFlipped)
+            {
+                FlipCharacter();
+            }
         }
     }
 
@@ -51,4 +62,14 @@ public class Player : MonoBehaviour
         isFlipped = !isFlipped;
     }
 
+    public void ChangeColorRandom()
+    {
+        Color randomColor = new Color(Random.value, Random.value, Random.value);
+        _spriteRenderer.color = randomColor;
+    }
+
+    public void ResetColor()
+    {
+        _spriteRenderer.color = originalColor;
+    }
 }

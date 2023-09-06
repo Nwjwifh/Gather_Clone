@@ -1191,11 +1191,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3078639558702458628, guid: 211eceb3eca5e1a46b511a26591531ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 3078639558702458628, guid: 211eceb3eca5e1a46b511a26591531ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.28
       objectReference: {fileID: 0}
     - target: {fileID: 3078639558702458628, guid: 211eceb3eca5e1a46b511a26591531ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1229,12 +1229,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3916685123444788425, guid: 211eceb3eca5e1a46b511a26591531ed, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4573433600437516023, guid: 211eceb3eca5e1a46b511a26591531ed, type: 3}
       propertyPath: m_Name
-      value: Dwarf
+      value: Penguin2
       objectReference: {fileID: 0}
     - target: {fileID: 4573433600437516023, guid: 211eceb3eca5e1a46b511a26591531ed, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234303607742744253, guid: 211eceb3eca5e1a46b511a26591531ed, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6652385817138806068, guid: 211eceb3eca5e1a46b511a26591531ed, type: 3}
