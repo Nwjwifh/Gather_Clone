@@ -12,18 +12,10 @@ public class MainMenu : MonoBehaviour
     public GameObject[] characters;
     public int selectedCharacter = 0;
 
-    public Player Player
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
     public void NextCharacter()
     {
         characters[selectedCharacter].SetActive(false);
-        selectedCharacter = (selectedCharacter + 1) % characters.Length; //¹è¿­ ¹üÀ§¸¦ ¹ş¾î³ª¸é Ã³À½ Ä³¸¯ÅÍ·Î ÀÌµ¿.
+        selectedCharacter = (selectedCharacter + 1) % characters.Length; //ë°°ì—´ ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ë©´ ì²˜ìŒ ìºë¦­í„°ë¡œ ì´ë™.
         characters[selectedCharacter].SetActive(true);
     }
 
@@ -31,7 +23,7 @@ public class MainMenu : MonoBehaviour
     {
         characters[selectedCharacter].SetActive(false);
         selectedCharacter--;
-        if(selectedCharacter < 0) //ÀÎµ¦½º°¡ À½¼ö¸é ¹è¿­ÀÇ ¸¶Áö¸· Ä³¸¯ÅÍ·Î ÀÌµ¿.
+        if(selectedCharacter < 0) //ì¸ë±ìŠ¤ê°€ ìŒìˆ˜ë©´ ë°°ì—´ì˜ ë§ˆì§€ë§‰ ìºë¦­í„°ë¡œ ì´ë™.
         {
             selectedCharacter += characters.Length;
         }
@@ -40,9 +32,9 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        Player.playerNameStr = playerName.text; //ÀÔ·ÂµÈ ÇÃ·¹ÀÌ¾î ÀÌ¸§À» playerNameStr º¯¼ö¿¡ ÀúÀå.
+        Player.playerNameStr = playerName.text; //ì…ë ¥ëœ í”Œë ˆì´ì–´ ì´ë¦„ì„ playerNameStr ë³€ìˆ˜ì— ì €ì¥.
         SceneManager.LoadScene(1);
-        PlayerPrefs.SetInt("selectedCharacter", selectedCharacter); //¼±ÅÃµÈ Ä³¸¯ÅÍ ÀÎµ¦½º ÀúÀå.
+        PlayerPrefs.SetInt("selectedCharacter", selectedCharacter); //ì„ íƒëœ ìºë¦­í„° ì¸ë±ìŠ¤ ì €ì¥.
     }
 
     public void ToMainMenu()
