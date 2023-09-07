@@ -12,14 +12,6 @@ public class MainMenu : MonoBehaviour
     public GameObject[] characters;
     public int selectedCharacter = 0;
 
-    public Player Player
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
     public void NextCharacter()
     {
         characters[selectedCharacter].SetActive(false);

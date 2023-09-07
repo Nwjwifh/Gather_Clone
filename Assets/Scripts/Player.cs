@@ -22,14 +22,6 @@ public class Player : MonoBehaviour
 
     public GameObject chatCanvas;
 
-    public SpawnCharacter SpawnCharacter
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
     private void Awake()
     {
         playerName.text = playerNameStr;
