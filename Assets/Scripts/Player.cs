@@ -22,6 +22,14 @@ public class Player : MonoBehaviour
 
     public GameObject chatCanvas;
 
+    public SpawnCharacter SpawnCharacter
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     private void Awake()
     {
         playerName.text = playerNameStr;
@@ -35,11 +43,11 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-            _rigidbody.velocity = _movementInput * _speed;
+        _rigidbody.velocity = _movementInput * _speed;
         
     }
 
-    private void OnMove(InputValue inputValue)
+    private void OnMove(InputValue inputValue) //플레이어 이동 처리
     {
         if (chatCanvas != null && !chatCanvas.activeSelf) // 채팅창이 비활성화된 경우에만 움직임 입력 처리
         {
@@ -56,19 +64,19 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void FlipCharacter()
+    private void FlipCharacter() //플레이어 방향 전환
     {
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         isFlipped = !isFlipped;
     }
 
-    public void ChangeColorRandom()
+    public void ChangeColorRandom() //랜덤 색상 변경
     {
         Color randomColor = new Color(Random.value, Random.value, Random.value);
         _spriteRenderer.color = randomColor;
     }
 
-    public void ResetColor()
+    public void ResetColor() //기본 색상으로 변경
     {
         _spriteRenderer.color = originalColor;
     }
